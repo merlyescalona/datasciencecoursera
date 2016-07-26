@@ -1,4 +1,91 @@
-# Variables
+# Information about the data
+- Data set used for the processing was extracted from the UCI HAR Dataset (further description [here], http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+- Output file  has the following columns:
+`subjectid`
+`activity`
+`featuretimebodyaccmeanx`
+`featuretimebodyaccmeany`
+`featuretimebodyaccmeanz`
+`featuretimebodyaccstdx`
+`featuretimebodyaccstdy`
+`featuretimebodyaccstdz`
+`featuretimegravityaccmeanx`
+`featuretimegravityaccmeany`
+`featuretimegravityaccmeanz`
+`featuretimegravityaccstdx`
+`featuretimegravityaccstdy`
+`featuretimegravityaccstdz`
+`featuretimebodyaccjerkmeanx`
+`featuretimebodyaccjerkmeany`
+`featuretimebodyaccjerkmeanz`
+`featuretimebodyaccjerkstdx`
+`featuretimebodyaccjerkstdy`
+`featuretimebodyaccjerkstdz`
+`featuretimebodygyromeanx`
+`featuretimebodygyromeany`
+`featuretimebodygyromeanz`
+`featuretimebodygyrostdx`
+`featuretimebodygyrostdy`
+`featuretimebodygyrostdz`
+`featuretimebodygyrojerkmeanx`
+`featuretimebodygyrojerkmeany`
+`featuretimebodygyrojerkmeanz`
+`featuretimebodygyrojerkstdx`
+`featuretimebodygyrojerkstdy`
+`featuretimebodygyrojerkstdz`
+`featuretimebodyaccmagmean`
+`featurefrequencybodyaccjerkmeanfreqz`
+`featuretimebodyaccmagstd`
+`featuretimegravityaccmagmean`
+`featuretimegravityaccmagstd`
+`featuretimebodyaccjerkmagmean`
+`featuretimebodyaccjerkmagstd`
+`featuretimebodygyromagmean`
+`featuretimebodygyromagstd`
+`featuretimebodygyrojerkmagmean`
+`featuretimebodygyrojerkmagstd`
+`featurefrequencybodyaccmeanx`
+`featurefrequencybodyaccmeany`
+`featurefrequencybodyaccmeanz`
+`featurefrequencybodyaccstdx`
+`featurefrequencybodyaccstdy`
+`featurefrequencybodyaccstdz`
+`featurefrequencybodyaccmeanfreqx`
+`featurefrequencybodyaccmeanfreqy`
+`featurefrequencybodyaccmeanfreqz`
+`featurefrequencybodyaccjerkmeanx`
+`featurefrequencybodyaccjerkmeany`
+`featurefrequencybodyaccjerkmeanz`
+`featurefrequencybodyaccjerkstdx`
+`featurefrequencybodyaccjerkstdy`
+`featurefrequencybodyaccjerkstdz`
+`featurefrequencybodyaccjerkmeanfreqx`
+`featurefrequencybodyaccjerkmeanfreqy`
+`featurefrequencybodygyromeanx`
+`featurefrequencybodygyromeany`
+`featurefrequencybodygyromeanz`
+`featurefrequencybodygyrostdx`
+`featurefrequencybodygyrostdy`
+`featurefrequencybodygyrostdz`
+`featurefrequencybodygyromeanfreqx`
+`featurefrequencybodygyromeanfreqy`
+`featurefrequencybodygyromeanfreqz`
+`featurefrequencybodyaccmagmean`
+`featurefrequencybodyaccmagstd`
+`featurefrequencybodyaccmagmeanfreq`
+`featurefrequencybodybodyaccjerkmagmean`
+`featurefrequencybodybodyaccjerkmagstd`
+`featurefrequencybodybodyaccjerkmagmeanfreq`
+`featurefrequencybodybodygyromagmean`
+`featurefrequencybodybodygyromagstd`
+`featurefrequencybodybodygyromagmeanfreq`
+`featurefrequencybodybodygyrojerkmagmean`
+`featurefrequencybodybodygyrojerkmagstd`
+`featurefrequencybodybodygyrojerkmagmeanfreq`
+
+# Information about the script
+## Variables
 Here there is a description about all the variables used in the code, though
 I find the names to be very descriptive.
 
@@ -20,7 +107,7 @@ I find the names to be very descriptive.
 - `splitd` <- dataset is split by `activity`
 - `summData` <- where the mean information per subject per activity is stored
 
-# Transformations
+## Transformations
 
 - Column transformation to ensure that data was numeric, specifically, double:
 
@@ -33,3 +120,7 @@ whole[,4:ncol(whole)]<-apply(whole[,4:ncol(whole)],2,as.double)
 ```
 whole$activity<-factor(whole$activity,levels = activities$activityid,labels = activities$activityname)
 ```
+
+# Refereces
+
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013.

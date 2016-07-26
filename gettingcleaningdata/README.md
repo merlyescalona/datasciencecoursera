@@ -1,9 +1,9 @@
 
-# Introduction 
+# Introduction
 
 The purpose of this project repository is to demonstrate my ability to collect, work
 with, and clean a data set. The goal is to prepare tidy data that can be used
-for later analysis. 
+for later analysis.
 
 In order to do this I have used the following dataset:
 
@@ -29,28 +29,28 @@ UCI HAR Dataset/
         X_test.txt
         subject_test.txt
         Intertial Signals/
-            body_acc_x_test.txt 
-            body_gyro_x_test.txt 
+            body_acc_x_test.txt
+            body_gyro_x_test.txt
             total_acc_x_test.txt
-            body_acc_y_test.txt 
+            body_acc_y_test.txt
             body_gyro_y_test.txt
-            total_acc_y_test.txt 
-            body_acc_z_test.txt 
-            body_gyro_z_test.txt 
+            total_acc_y_test.txt
+            body_acc_z_test.txt
+            body_gyro_z_test.txt
             total_acc_z_test.txt
     train/
         y_train.txt
         X_train.txt
         subject_train.txt
         Intertial Signals/
-            body_acc_x_train.txt 
-            body_gyro_x_train.txt 
+            body_acc_x_train.txt
+            body_gyro_x_train.txt
             total_acc_x_train.txt
-            body_acc_y_train.txt 
+            body_acc_y_train.txt
             body_gyro_y_train.txt
-            total_acc_y_train.txt 
-            body_acc_z_train.txt 
-            body_gyro_z_train.txt 
+            total_acc_y_train.txt
+            body_acc_z_train.txt
+            body_gyro_z_train.txt
             total_acc_z_train.txt
 ```
 
@@ -74,3 +74,8 @@ Rscript --vanilla <input_path> <output_path>
 
 - `<input_data>` is the path to where the "UCI HAR Dataset" folder is.
 - `<output_data>` is the path to where to write down the output file.
+
+
+# Reference
+
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013.

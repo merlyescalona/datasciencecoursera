@@ -41,7 +41,7 @@ trainFiles<-c(paste0(folder,mode[2],"/","subject_", mode[2], ".txt"),
                        paste(rep(c("body_acc","body_gyro","total_acc")),
                              rep(c("x","y","z"),each=3),
                              mode[2],
-                             sep="_"), 
+                             sep="_"),
                        rep(".txt",9))
               )
 )
@@ -50,13 +50,13 @@ wholeTrain<-data.frame(subjectid=read.table(trainFiles[1]),
                        activity=read.table(trainFiles[3]),
                        feature=read.table(trainFiles[2],col.names=featuresNames[,2])
                        )
-wholeTrain$dataset<-rep(factor("TRAIN"), nrow(wholeTrain)); 
+wholeTrain$dataset<-rep(factor("TRAIN"), nrow(wholeTrain));
 # Test Dataset
 wholeTest<-data.frame(subjectid=read.table(testFiles[1]),
                       activity=read.table(testFiles[3]),
                       feature=read.table(testFiles[2],col.names=featuresNames[,2])
 )
-wholeTest$dataset<-rep(factor("TEST"), nrow(wholeTest)); 
+wholeTest$dataset<-rep(factor("TEST"), nrow(wholeTest));
 
 whole<-rbind(wholeTrain,wholeTest)
 
@@ -85,7 +85,16 @@ summData<-c()
 for (item in splitData){
   splitd<-split(item,item$activity)
   meand<-t(sapply(splitd,function(x){apply(x[4:ncol(whole)],2,mean)}))
-  summData<-rbind(summData,cbind(rep(item$dataset,length(names(meand))),rep(item$subjectid,length(names(meand))), meand))
+  l<-length(rownames(meand))
+  naming<-cbind(rep(item$dataset,l),
+                rep(item$subjectid,l), rownames(meand),meand)
+  summData<-rbind(summData,naming)
 }
 
-write.table(summData, paste0(outputpath,"output.txt"),row.name=FALSE) 
+summData[summData[,1]==1,1]<-mode[1]
+summData[summData[,1]==2,1]<-mode[2]
+
+colnames(summData)[1]<-"dataset"
+colnames(summData)[2]<-"subjectid"
+colnames(summData)[3]<-"activity"
+write.table(summData, paste0(outputpath,"/output.txt"),row.name=FALSE)
