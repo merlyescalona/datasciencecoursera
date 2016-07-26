@@ -1,5 +1,3 @@
-title: 'Coursera: Getting and cleaning data course project'
-author: "Merly Escalona <merlyescalona@uvigo.es>"
 
 # Introduction 
 
